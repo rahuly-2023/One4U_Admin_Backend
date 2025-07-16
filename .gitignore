@@ -1,0 +1,31 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Dependency lock files (optional)
+# Uncomment the next line if you do NOT want to track lock file
+# package-lock.json
+
+# Runtime generated files (if any later)
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Docker artifacts (optional temporary files)
+*.dockerfile
