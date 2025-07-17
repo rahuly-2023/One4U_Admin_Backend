@@ -1,7 +1,6 @@
 // admin_backend/Controller/Login.js
 
-
-const User = require('../Models/User');
+const Admin = require('../Models/Admin');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
@@ -14,7 +13,7 @@ const login = async (req, res) => {
 
   try {
     // Find user by email
-    const user = await User.findOne({ email });
+    const user = await Admin.findOne({ email });
     if (!user) {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
@@ -27,7 +26,7 @@ const login = async (req, res) => {
 
     // Generate JWT token
     const payload = {
-      userId: user._id,
+      adminId: user._id,
       name: user.name,
       email: user.email,
     };
@@ -38,7 +37,7 @@ const login = async (req, res) => {
     res.status(200).json({ 
       message: 'Login successful', 
       token,
-      userId: user._id, 
+      adminId: user._id, 
       name: user.name,
     });
 

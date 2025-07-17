@@ -1,7 +1,6 @@
 // admin_backend/Controller/Signup.js
 
-
-const User = require('../Models/User');
+const Admin = require('../Models/Admin')
 const bcrypt = require('bcryptjs');
 
 const signup = async (req, res) => {
@@ -9,7 +8,7 @@ const signup = async (req, res) => {
 
   try {
     // Check if user already exists
-    const existingUser = await User.findOne({ email });
+    const existingUser = await Admin.findOne({ email });
     if (existingUser) {
       return res.status(409).json({ message: 'User already exists with this email' });
     }
@@ -19,7 +18,7 @@ const signup = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Create new user
-    const newUser = new User({
+    const newUser = new Admin({
       name,
       email,
       password: hashedPassword,
