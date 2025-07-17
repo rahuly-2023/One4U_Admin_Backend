@@ -1,3 +1,6 @@
+// admin_backend/Models/routes.js
+
+
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
@@ -7,6 +10,7 @@ const {allOrders}=require('./Controller/allOrders');
 const {activeRequests}=require('./Controller/activeRequests')
 const {completeOrders}=require('./Controller/completeOrders');
 const {completeRequests}=require('./Controller/completeRequests')
+const {UpdateStatus}=require('./Controller/UpdateStatus')
 const  {signup}=require('./Controller/Signup')
 const {login}=require('./Controller/Login')
 
@@ -96,6 +100,11 @@ router.put('/orders/:id/complete',authenticateAdmin,  completeOrders);
 
 router.get('/requests',authenticateAdmin,  activeRequests);
 router.put('/requests/:id/complete',authenticateAdmin, completeRequests);
+
+
+
+// ✅ 2. PUT Status Route in routes/order.js
+router.put('/orders/:id/status',  UpdateStatus);
 
 
 
