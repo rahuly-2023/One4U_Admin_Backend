@@ -1,3 +1,6 @@
+// admin_backend/Models/FoodCategory.js
+
+
 const mongoose = require('mongoose');
 
 const foodCategorySchema = new mongoose.Schema({
