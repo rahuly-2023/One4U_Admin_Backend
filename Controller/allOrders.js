@@ -1,3 +1,6 @@
+// admin_backend/Controller/allOrder.js
+
+
 const Order = require('../Models/Order');
 const FoodItem = require('../Models/FoodItem')
 const User=require('../Models/User')
@@ -23,7 +26,7 @@ allOrders = async (req, res) => {
 
 
 
-    const orders = await Order.find(query)
+    const orders = await Order.find()
       .populate({
         path: 'items.item',
         select: 'name price',
